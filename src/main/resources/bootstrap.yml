@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: red-packet
+  cloud:
+    config:
+      enabled: false
+management:
+  security:
+    enabled: false
+  context-path: /manage
+logging:
+  file: /opt/tomcat/logs/app.log

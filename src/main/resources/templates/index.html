@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>index</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
+    <script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //模拟30000个异步请求，进行并发
+            var max = 30000;
+            /* <![CDATA[ */
+            for(var i = 1; i <= max; i++){
+                //jquey的post请求
+                $.post({
+                    //请求抢id为1的红包
+                    url:"/userRedPacket/grapRedPacket?redPacketId=4&userId=" +i
+                });
+            }
+            /* ]]> */
+        })
+
+    </script>
+</head>
+<body>
+dsdsadsadsa
+</body>
+</html>

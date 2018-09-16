@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.donkey.demo.dao.RedPacketMapper" >
+
+    <select id="getRedPacket" resultType="com.donkey.demo.domain.RedPacket"
+            parameterType="java.lang.Long" >
+      select id,
+          user_id as "userId",
+          amount as "amount",
+          send_date as "sendDate",
+          total as "total",
+          unit_amount as "unitAmount",
+          stock,
+          version,
+          note
+      from t_red_packet
+      where id = #{id,jdbcType=INTEGER}
+    </select>
+
+  <!--
+      <select id="getRedPacket" resultType="com.donkey.demo.domain.RedPacket"
+              parameterType="java.lang.Long" >
+        select id,
+            user_id as "userId",
+            amount as "amount",
+            send_date as "sendDate",
+            total as "total",
+            unit_amount as "unitAmount",
+            stock,
+            version,
+            note
+        from t_red_packet
+        where id = #{id,jdbcType=INTEGER} for update
+      </select>
+-->
+    <update id="decreaseRedPacket" parameterType="com.donkey.demo.domain.RedPacket" >
+      update t_red_packet
+      set stock = (stock -1)
+      where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <update id="decreaseRedPacketForVersion">
+      update t_red_packet
+      set stock = (stock -1),
+      version = (version +1)
+      where id = #{id,jdbcType=INTEGER}
+      and version = #{version}
+    </update>
+  </mapper>
