@@ -7,6 +7,8 @@ public interface UserRedPacketService {
 
     int grapRedPacketForVersion(Long redPacketId, Long userId);
 
+    int grapRedPacketByRedis(Long redPacketId, Long userId);
+
 }
 
 

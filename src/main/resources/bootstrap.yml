@@ -11,4 +11,4 @@ management:
     enabled: false
   context-path: /manage
 logging:
-  file: /opt/tomcat/logs/app.log
+  file: /Users/ln/logs/app.log

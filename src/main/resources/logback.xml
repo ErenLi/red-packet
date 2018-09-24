@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-	<property name="log_dir" value="/opt/tomcat/logs"/>
+	<property name="log_dir" value="/Users/ln/logs"/>
 
 	<include resource="org/springframework/boot/logging/logback/defaults.xml"/>
 

@@ -19,11 +19,12 @@ public class UserRedPacketController {
     @RequestMapping(value = "/grapRedPacket", method = {RequestMethod.POST, RequestMethod.GET})
     public Result grapRedPacket(Long redPacketId, Long userId){
         //抢红包
-        int result = userRedPacketService.grapRedPacketForVersion(redPacketId, userId);
+        int result = userRedPacketService.grapRedPacket(redPacketId, userId);
+        System.out.println(userId);
         if(result > 0){
-            return ResultGenerator.genFailResult("抢红包成功");
+            return ResultGenerator.genFailResult(userId+" 抢红包成功");
         }
-        return ResultGenerator.genFailResult("抢红包失败");
+        return ResultGenerator.genFailResult(userId+" 抢红包失败");
     }
 
 

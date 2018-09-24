@@ -143,6 +143,16 @@ public interface RedisService {
      */
     long listObjectAdd(String key, Object... value);
 
+
+    /**
+     * 向List缓存中添加值
+     * @param key 键
+     * @return
+     */
+    String listObjectDel(String key);
+
+    boolean sisMember(String key, String value);
+
     /**
      * 设置Set缓存
      * @param key 键

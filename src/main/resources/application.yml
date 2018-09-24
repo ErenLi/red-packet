@@ -30,10 +30,10 @@ pagehelper:
 spring:
   profiles: dev
   datasource:
-    url: jdbc:mysql://localhost:3306/red_packet?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://localhost:3306/test?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false
     driver-class-name: com.mysql.jdbc.Driver
     username: root
-    password: root
+    password: tiamo1314
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       connection-test-query: SELECT 1 FROM DUAL
@@ -44,7 +44,7 @@ spring:
       max-lifetime: 1765000
 
   redis:
-    host: 172.16.2.147
+    host: localhost
     port: 6379
     password:
     max-active: 30

@@ -324,6 +324,24 @@ public class RedisServiceImpl implements RedisService {
     }
 
     @Override
+    public String listObjectDel(String key) {
+        String result ="";
+        Jedis jedis = null;
+        try {
+            jedis = getResource();
+
+            result = jedis.rpop(key);
+            logger.debug("listObjectDel {} = {}", key);
+        } catch (Exception e) {
+            logger.warn("listObjectDel {} = {}", key, e);
+        } finally {
+            returnResource(jedis);
+        }
+        return result;
+    }
+
+
+    @Override
     public long listObjectAdd(String key, Object... value) {
         long result = 0;
         Jedis jedis = null;
@@ -363,6 +381,25 @@ public class RedisServiceImpl implements RedisService {
             returnResource(jedis);
         }
         return result;
+    }
+
+    @Override
+    public boolean sisMember(String key, String value) {
+        boolean result =false;
+        Jedis jedis = null;
+try{
+            jedis = getResource();
+ if(jedis.exists(key)){
+        result = jedis.sismember(key, value);
+        logger.debug("getSet {} = {}", key, value);
+    }
+} catch (Exception e){
+            logger.warn("getSet {} = {}", key, value, e);
+} finally {
+    returnResource(jedis);
+}
+        return result;
+
     }
 
     @Override
